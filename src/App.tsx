@@ -1,8 +1,16 @@
+import ProductCard from "./components/ProductCard";
+import { productList } from "./data/productList";
+
 function App() {
+  const renderedProductList = productList.map((product) => (
+    <ProductCard key={product.id} product={product} />
+  ));
   return (
-    <>
-      <h4 className="text-3xl font-bold underline">Youssef ALaa</h4>
-    </>
+    <div className="container">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 xl:grid-4">
+        {renderedProductList}
+      </div>
+    </div>
   );
 }
 
