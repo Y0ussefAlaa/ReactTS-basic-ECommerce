@@ -10,7 +10,7 @@ interface IProps {
 const ProductCard = ({ product }: IProps) => {
   const { title, description, imgURL, price } = product;
   return (
-    <div className="max-w-sm md:max-w-lg md border rounded-md grid grid-cols-1 flex flex-col p-2 my-3">
+    <div className="w-full sm:max-w-sm border rounded-md flex flex-col p-2 my-3">
       <Image
         imageURL={imgURL}
         alt="product image"
@@ -29,7 +29,6 @@ const ProductCard = ({ product }: IProps) => {
         <Image alt="" imageURL={imgURL} className="w-10 h-10 rounded-full" />
       </div>
       <div className="flex space-x-2 mt-5">
-        <button></button>
         <Buttton
           onClick={() => {
             console.log("Clicked");
