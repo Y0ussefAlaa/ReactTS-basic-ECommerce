@@ -1,24 +1,36 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import ProductCard from "./components/ProductCard";
 import Modal from "./components/UI/Modal";
 import { formInputsList, productList } from "./data/productList";
 import Button from "./components/UI/Buttton";
 import Input from "./components/UI/Input";
+import type { IProduct } from "./interfaces";
 
 function App() {
-  /* -----------STATES--------------*/
+  /* --------------------STATES-------------------------------*/
+  const [product, setProduct] = useState<IProduct>({
+    title: "",
+    description: "",
+    imgURL: "",
+    price: "",
+    colors: [],
+    category: {
+      name: "",
+      imgURL: "",
+    },
+  });
   const [isOpen, setIsOpen] = useState(false);
 
-  /* -----------HANDLERS--------------*/
+  /* ----------------------HANDLERS--------------------*/
 
-  function open() {
-    setIsOpen(true);
-  }
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
+  const onChageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setProduct({ ...product, [name]: value });
+  };
 
-  function close() {
-    setIsOpen(false);
-  }
-  /* -----------RENDER--------------*/
+  /* -----------------------RENDE------------------------------------*/
   const renderedProductList = productList.map((product) => (
     <ProductCard key={product.id} product={product} />
   ));
@@ -31,9 +43,20 @@ function App() {
       >
         {input.label}
       </label>
-      <Input type={input.type} name={input.name} id={input.id} key={input.id} />
+      <Input
+        type={input.type}
+        name={input.name}
+        id={input.id}
+        key={input.id}
+        value={product[input.name]}
+        onChange={(e) => {
+          onChageHandler(e);
+        }}
+      />
     </div>
   ));
+
+  /*------------------------------------------------------------------------------*/
   return (
     <div className="container mx-auto px-4">
       <Button className="bg-indigo-700 hover:bg-indigo-400" onClick={open}>
