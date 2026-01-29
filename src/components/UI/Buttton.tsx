@@ -14,7 +14,7 @@ const Buttton = ({
 }: IProps) => {
   return (
     <button
-      className={`w-full ${className} ${width} p-2 rounded-md cursor-pointer`}
+      className={` ${className} ${width} p-2 rounded-md cursor-pointer`}
       {...rest}
     >
       {children}
