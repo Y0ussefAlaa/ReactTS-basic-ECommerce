@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import type { IFormInput, IProduct } from "../interfaces";
+import type { ICategory, IFormInput, IProduct } from "../interfaces";
 
 const lorem100 =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente architecto sunt iusto. Veritatis repellat unde illum vitae eveniet dolore obcaecati, quam sed aliquam laborum libero reprehenderit officia quod provident. Autem architecto quaerat odio voluptas sunt expedita corporis fugit temporibus blanditiis voluptatibus magnam harum tenetur eligendi alias, repudiandae officiis velit dignissimos deserunt maiores? Excepturi molestias earum incidunt dicta tenetur ut, aspernatur quasi animi atque. Dolore, ducimus magni? Sunt quod ducimus in suscipit provident error debitis repudiandae accusamus enim nisi. Sint, ipsum eveniet nesciunt aliquid sequi dolores non et suscipit dolore necessitatibus quas possimus laborum nulla. Autem optio obcaecati expedita laudantium tenetur.";
@@ -139,4 +139,31 @@ export const COLORS: string[] = [
   "#1F8A70",
   "#820000",
   "#FF0032",
+];
+
+export const categories: ICategory[] = [
+  {
+    id: uuidv4(),
+    name: "Nike",
+    imgURL:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgXxCoWAxMD5-hrsEKfiF_ejqfBblzDMt7A&s",
+  },
+  {
+    id: uuidv4(),
+    name: "Ferrari",
+    imgURL:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgXxCoWAxMD5-hrsEKfiF_ejqfBblzDMt7A&s",
+  },
+  {
+    id: uuidv4(),
+    name: "T-Shirt",
+    imgURL:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgXxCoWAxMD5-hrsEKfiF_ejqfBblzDMt7A&s",
+  },
+  {
+    id: uuidv4(),
+    name: "PC Desktop",
+    imgURL:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMgXxCoWAxMD5-hrsEKfiF_ejqfBblzDMt7A&s",
+  },
 ];

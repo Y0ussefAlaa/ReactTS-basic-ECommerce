@@ -6,10 +6,19 @@ import Buttton from "./UI/Buttton";
 
 interface IProps {
   product: IProduct;
+  setProductToEdit: (product: IProduct) => void;
+  openEdit: () => void;
 }
 
-const ProductCard = ({ product }: IProps) => {
+const ProductCard = ({ product, setProductToEdit, openEdit }: IProps) => {
   const { title, description, imgURL, colors, price } = product;
+
+  /*----------------------HANDLERS-----------------------------*/
+  const onEdit = () => {
+    setProductToEdit(product);
+    openEdit();
+  };
+
   /*----------------------RENADERS-----------------------------*/
   const renderProductColors = colors.map((color) => (
     <CircleColor color={color} key={color} />
@@ -32,12 +41,7 @@ const ProductCard = ({ product }: IProps) => {
         <Image alt="" imageURL={imgURL} className="w-10 h-10 rounded-full" />
       </div>
       <div className="flex space-x-2 mt-5">
-        <Buttton
-          onClick={() => {
-            console.log("Clicked");
-          }}
-          className=" bg-indigo-700"
-        >
+        <Buttton onClick={onEdit} className=" bg-indigo-700">
           EDIT
         </Buttton>
         <Buttton className=" bg-red-700 ">DELETE</Buttton>
