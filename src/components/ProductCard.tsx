@@ -7,16 +7,32 @@ import Buttton from "./UI/Buttton";
 interface IProps {
   product: IProduct;
   setProductToEdit: (product: IProduct) => void;
+  setProductToEditIdx: (value: number) => void;
   openEdit: () => void;
+  idx: number;
+  openConfirmModal: () => void;
 }
 
-const ProductCard = ({ product, setProductToEdit, openEdit }: IProps) => {
+const ProductCard = ({
+  product,
+  setProductToEdit,
+  openEdit,
+  setProductToEditIdx,
+  idx,
+  openConfirmModal,
+}: IProps) => {
   const { title, description, imgURL, colors, price } = product;
 
   /*----------------------HANDLERS-----------------------------*/
   const onEdit = () => {
-    setProductToEdit(product);
     openEdit();
+    setProductToEdit(product);
+    setProductToEditIdx(idx);
+  };
+
+  const onRemove = () => {
+    setProductToEdit(product);
+    openConfirmModal();
   };
 
   /*----------------------RENADERS-----------------------------*/
@@ -44,7 +60,9 @@ const ProductCard = ({ product, setProductToEdit, openEdit }: IProps) => {
         <Buttton onClick={onEdit} className=" bg-indigo-700">
           EDIT
         </Buttton>
-        <Buttton className=" bg-red-700 ">DELETE</Buttton>
+        <Buttton className=" bg-red-700 " onClick={onRemove}>
+          Remove
+        </Buttton>
       </div>
     </div>
   );

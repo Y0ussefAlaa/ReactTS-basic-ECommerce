@@ -13,13 +13,11 @@ import { categories } from "../../data/productList";
 import type { ICategory } from "../../interfaces";
 
 interface IProps {
-  selected: ICategory;
+  selected: { name: string; imgURL: string };
   setSelected: (category: ICategory) => void;
 }
 
 const SelectMenu = ({ selected, setSelected }: IProps) => {
-  console.log(selected);
-
   return (
     <Listbox value={selected} onChange={setSelected}>
       <Label className="block text-sm/6 font-medium text-gray-900">
